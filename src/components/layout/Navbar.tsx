@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -13,9 +12,9 @@ const Navbar = () => {
   };
 
   const navigation = [
-    { name: 'Studio', href: '/studio', icon: Video },
-    { name: 'Settings', href: '/settings', icon: Settings },
-    { name: 'Pricing', href: '/pricing', icon: CreditCard },
+    { name: "Studio", href: "/studio", icon: Video },
+    { name: "Settings", href: "/settings", icon: Settings },
+    { name: "Pricing", href: "/pricing", icon: CreditCard },
   ];
 
   return (
@@ -23,12 +22,13 @@ const Navbar = () => {
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center">
           <Link to="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold gradient-text">ReelCraft</span>
+            <img className="h-6" src="/zeemerblack.png" alt="logo" />
+            <span className="text-2xl font-bold">zeemer.ai</span>
           </Link>
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-4">
+        {/* <nav className="hidden md:flex items-center space-x-4">
           {navigation.map((item) => (
             <Button key={item.name} variant="ghost" asChild>
               <Link to={item.href} className="flex items-center space-x-1">
@@ -40,10 +40,10 @@ const Navbar = () => {
           <Button asChild>
             <Link to="/studio">Create Reel</Link>
           </Button>
-        </nav>
+        </nav> */}
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden">
+        {/* <div className="md:hidden">
           <Button variant="ghost" size="icon" onClick={toggleMenu}>
             {isMenuOpen ? (
               <X className="h-6 w-6" />
@@ -51,15 +51,17 @@ const Navbar = () => {
               <Menu className="h-6 w-6" />
             )}
           </Button>
-        </div>
+        </div> */}
       </div>
 
       {/* Mobile Navigation */}
-      <div
+      {/* <div
         className={cn(
-          "fixed inset-0 top-16 z-40 transform bg-background md:hidden overflow-auto",
-          isMenuOpen ? "translate-x-0" : "translate-x-full",
-          "transition-transform duration-300 ease-in-out"
+          "fixed top-16 right-0 left-0 z-40 bg-background md:hidden overflow-hidden",
+          "transition-all duration-300 ease-in-out",
+          isMenuOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
         )}
       >
         <div className="container py-6 space-y-4">
@@ -77,11 +79,15 @@ const Navbar = () => {
               </Link>
             </Button>
           ))}
-          <Button className="w-full" onClick={() => setIsMenuOpen(false)} asChild>
+          <Button
+            className="w-full"
+            onClick={() => setIsMenuOpen(false)}
+            asChild
+          >
             <Link to="/studio">Create Reel</Link>
           </Button>
         </div>
-      </div>
+      </div> */}
     </header>
   );
 };
