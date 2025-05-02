@@ -33,7 +33,7 @@ const Index = () => {
                   target="_blank"
                   to="https://docs.google.com/forms/d/e/1FAIpQLSeovzY15GVO_XJQUhxJlSxRyBmlGfvnfa9i1nNvOYsNCxpm-g/viewform"
                 >
-                  Get Started
+                 Join wait list 
                 </Link>
               </Button>
             </div>
