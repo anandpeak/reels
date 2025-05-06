@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-3">
             <Link to="/" className="flex items-center space-x-2">
-              <span className="text-xl font-bold gradient-text">Zeemer.AI</span>
+              <span className="text-xl font-bold gradient-text">zeemer.ai</span>
             </Link>
             <p className="text-sm text-muted-foreground">
               Create professional social media <br /> reels with AI in minutes.
