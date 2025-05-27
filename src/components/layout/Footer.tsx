@@ -10,18 +10,19 @@ const Footer = () => {
               <span className="text-xl font-bold gradient-text">zeemer.ai</span>
             </Link>
             <p className="text-sm text-muted-foreground">
-              Create professional social media <br /> reels with AI in minutes.
+              Хиймэл оюунд тулгуурлан хэдхэн минутанд <br /> мэргэжлийн сошиал
+              медиа бичлэг үүсгээрэй.
             </p>
           </div>
           <div>
-            <h3 className="font-medium mb-3">Product</h3>
+            <h3 className="font-medium mb-3">Бүтээгдэхүүн</h3>
             <ul className="space-y-2">
               <li>
                 <Link
                   to="/"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  Studio
+                  Студи
                 </Link>
               </li>
               <li>
@@ -29,20 +30,20 @@ const Footer = () => {
                   to="/"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  Pricing
+                  Үнэ төлбөр
                 </Link>
               </li>
             </ul>
           </div>
           <div>
-            <h3 className="font-medium mb-3">Company</h3>
+            <h3 className="font-medium mb-3">Компанид</h3>
             <ul className="space-y-2">
               <li>
                 <Link
                   to="/"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  About
+                  Бидний тухай
                 </Link>
               </li>
               <li>
@@ -50,7 +51,7 @@ const Footer = () => {
                   to="/"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  Blog
+                  Блог
                 </Link>
               </li>
               <li>
@@ -58,20 +59,20 @@ const Footer = () => {
                   to="/"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  Contact
+                  Холбоо барих
                 </Link>
               </li>
             </ul>
           </div>
           <div>
-            <h3 className="font-medium mb-3">Legal</h3>
+            <h3 className="font-medium mb-3">Хууль эрхзүйн</h3>
             <ul className="space-y-2">
               <li>
                 <Link
                   to="/"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  Privacy
+                  Нууцлалын бодлого
                 </Link>
               </li>
               <li>
@@ -79,7 +80,7 @@ const Footer = () => {
                   to="/"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  Terms
+                  Үйлчилгээний нөхцөл
                 </Link>
               </li>
             </ul>
@@ -87,7 +88,8 @@ const Footer = () => {
         </div>
         <div className="mt-8 border-t pt-8 flex flex-col md:flex-row items-center justify-between">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} ReelCraft. All rights reserved.
+            © {new Date().getFullYear()} ReelCraft. Бүх эрх хуулиар
+            хамгаалагдсан.
           </p>
           <div className="flex items-center space-x-4 mt-4 md:mt-0">
             <Link

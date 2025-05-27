@@ -2,50 +2,88 @@ import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { Video, Mic, FileText } from "lucide-react";
+import { useEffect, useRef } from "react";
 
 const Index = () => {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const handleUserInteraction = () => {
+      if (videoRef.current) {
+        videoRef.current.play().catch((e) => {
+          console.warn("Autoplay with sound failed:", e);
+        });
+      }
+      window.removeEventListener("click", handleUserInteraction);
+    };
+
+    window.addEventListener("click", handleUserInteraction);
+
+    return () => {
+      window.removeEventListener("click", handleUserInteraction);
+    };
+  }, []);
+
+  const togglePlay = () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (video.paused) {
+      video.play();
+    } else {
+      video.pause();
+    }
+  };
+
   return (
     <Layout>
       {/* Hero Section */}
 
       {/* Desktop version - shown on large screens and up */}
-      <section className="hidden md:block relative py-20 bg-grid">
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/5 to-brand-lightBlue/20 z-0"></div>
+      <section
+        style={{ backgroundImage: `url('/img/back.jpg')` }}
+        className="hidden md:block relative py-20 bg-grid"
+      >
+        {/* <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/5 to-brand-lightBlue/20 z-0"></div> */}
         <div className="container relative z-10 flex items-center justify-between gap-10">
           <img
             className="max-w-xs rounded-xl shadow-lg"
-            src="/img/test.jpeg"
+            src="/img/test.jpg"
             alt="aaa"
           />
           <div className="flex flex-col items-center text-center space-y-8 max-w-xl mx-auto">
             <h1 className="text-4xl font-bold tracking-tight gradient-text">
-              Create Stunning Social Media <br /> Reels in Minutes with{" "}
-              <span className="text-[#F48D7E] underline">your voice</span>
+              Хором бүрт сэтгэл татам <br /> сошиал медиа бичлэгийг{" "}
+              <span className="text-[#F48D7E] underline">
+                өөрийн хоолойгоороо
+              </span>{" "}
+              бий болгоорой
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl relative">
-              Upload your photo, record your voice, add a script, and let AI
-              create professional social media reels with your appearance and
-              voice
+              Фото зургийг өөрийнхөөрөө оруулж, дуугаа бичиж, скрипт нэмээд,
+              хиймэл оюун таны дүр төрх, хоолойг ашиглан мэргэжлийн бичлэг
+              үүсгэнэ.
             </p>
+
             <div className="flex flex-col sm:flex-row gap-4 relative">
               <Button size="lg" asChild>
                 <Link
                   target="_blank"
                   to="https://docs.google.com/forms/d/e/1FAIpQLSeovzY15GVO_XJQUhxJlSxRyBmlGfvnfa9i1nNvOYsNCxpm-g/viewform"
                 >
-                 Join wait list 
+                  Хүлээгдэж буй жагсаалтанд нэгдэх
                 </Link>
               </Button>
             </div>
           </div>
           <video
-            className="max-w-xs rounded-xl shadow-lg"
+            ref={videoRef}
+            className="max-w-xs rounded-xl shadow-lg cursor-pointer"
             src="/img/test.mp4"
-            autoPlay
-            muted
-            loop
             playsInline
-          ></video>
+            loop
+            onClick={togglePlay}
+          />
         </div>
       </section>
 
@@ -77,7 +115,6 @@ const Index = () => {
               className="w-[60%] max-w-xs rounded-xl shadow-lg"
               src="/img/test.mp4"
               autoPlay
-              muted
               loop
               playsInline
             ></video>
@@ -86,9 +123,9 @@ const Index = () => {
           {/* Description and Button */}
           <div className="flex flex-col items-center space-y-8 max-w-xl">
             <p className="text-lg text-muted-foreground">
-              Upload your photo, record your voice, add a script, and let AI
-              create professional social media reels with your appearance and
-              voice
+              Өөрийн зургаа байршуулаад, дуу хоолойгоо бичиж, текст нэмээд,
+              хиймэл оюунд өөрийн төрх, дуу хоолойгоор мэргэжлийн түвшний сошиал
+              медиа бичлэг үүсгүүлээрэй.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" asChild>
@@ -96,7 +133,7 @@ const Index = () => {
                   target="_blank"
                   to="https://docs.google.com/forms/d/e/1FAIpQLSeovzY15GVO_XJQUhxJlSxRyBmlGfvnfa9i1nNvOYsNCxpm-g/viewform"
                 >
-                  Get Started
+                  Эхлэх{" "}
                 </Link>
               </Button>
             </div>
@@ -108,9 +145,12 @@ const Index = () => {
       <section className="py-20 bg-background">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
-            <h2 className="text-3xl font-bold tracking-tight">How It Works</h2>
+            <h2 className="text-3xl font-bold tracking-tight">
+              Хэрхэн ажилладаг вэ?
+            </h2>
             <p className="text-muted-foreground">
-              Create professional social media reels in just 4 simple steps
+              Зөвхөн 3 энгийн алхмаар мэргэжлийн сошиал медиа бичлэгүүдийг
+              бүтээнэ үү
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
@@ -118,30 +158,34 @@ const Index = () => {
               <div className="p-3 rounded-full bg-brand-purple/10">
                 <Video className="h-6 w-6 text-brand-purple" />
               </div>
-              <h3 className="text-xl font-medium">1. Upload Your Media</h3>
+              <h3 className="text-xl font-medium">
+                1. Өөрийн Медиагаа Байршуулах
+              </h3>
               <p className="text-muted-foreground">
-                Upload a photo or short video of yourself that will be used as
-                the base for your reel
+                Таны бичлэгийн үндсэн суурь болох өөрийн зураг эсвэл богино
+                видеог байршуулаарай
               </p>
             </div>
             <div className="flex flex-col items-center text-center p-6 rounded-lg border bg-card space-y-4">
               <div className="p-3 rounded-full bg-brand-purple/10">
                 <Mic className="h-6 w-6 text-brand-purple" />
               </div>
-              <h3 className="text-xl font-medium">2. Clone Your Voice</h3>
+              <h3 className="text-xl font-medium">
+                2. Дуу Хоолойгоо Хуулаарай
+              </h3>
               <p className="text-muted-foreground">
-                Record a short audio sample so our AI can learn and replicate
-                your unique voice
+                Хиймэл оюун таны өвөрмөц дуу хоолойг суралцаж дуурайхаар богино
+                аудио бичлэг хийгээрэй
               </p>
             </div>
             <div className="flex flex-col items-center text-center p-6 rounded-lg border bg-card space-y-4">
               <div className="p-3 rounded-full bg-brand-purple/10">
                 <FileText className="h-6 w-6 text-brand-purple" />
               </div>
-              <h3 className="text-xl font-medium">3. Add Your Script</h3>
+              <h3 className="text-xl font-medium">3. Текстээ Нэмэх</h3>
               <p className="text-muted-foreground">
-                Type or paste your script that will be converted into a
-                professional reel with subtitles
+                Мэргэжлийн бичлэг болон гарчиг болгон хувиргах текстээ бичиж
+                эсвэл хуулж оруулна уу
               </p>
             </div>
           </div>
@@ -157,44 +201,42 @@ const Index = () => {
       <section className="py-20 bg-muted/50">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
-            <h2 className="text-3xl font-bold tracking-tight">
-              Powerful Features
-            </h2>
+            <h2 className="text-3xl font-bold tracking-tight">Онцлогууд</h2>
             <p className="text-muted-foreground">
-              Everything you need to create professional social media content
+              Мэргэжлийн сошиал медиа контент бүтээхэд шаардлагатай бүх зүйл
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="p-6 rounded-lg border bg-card space-y-3">
               <h3 className="text-xl font-medium">
-                🤖 AI-Powered Video Generation
+                🤖 Хиймэл Оюунт Видео Үүсгэх
               </h3>
               <p className="text-muted-foreground">
-                Our advanced AI transforms your photo or video into a dynamic,
-                animated reel that looks professionally produced
+                Манай дэвшилтэт хиймэл оюун таны зургийг эсвэл видеог мэргэжлийн
+                түвшний хөдөлгөөнт, амьдралтай бичлэг болгон хувиргана
               </p>
             </div>
             <div className="p-6 rounded-lg border bg-card space-y-3">
               <h3 className="text-xl font-medium">
-                🗣️ Voice Cloning Technology
+                🗣️ Дуу Хоолойн Хууламж Технологи
               </h3>
               <p className="text-muted-foreground">
-                Generate speech that sounds exactly like you with our
-                state-of-the-art voice synthesis technology
+                Манай хамгийн сүүлийн үеийн дуу хоолойн нийлэгжүүлэлтийн
+                технологиор яг таны дуу хоолой мэт яриа үүсгээрэй
               </p>
             </div>
             <div className="p-6 rounded-lg border bg-card space-y-3">
-              <h3 className="text-xl font-medium">📝 Automatic Subtitles</h3>
+              <h3 className="text-xl font-medium">📝 Автомат Гарчиг</h3>
               <p className="text-muted-foreground">
-                Every reel comes with professionally styled subtitles that match
-                your content perfectly
+                Бүх бичлэгүүд мэргэжлийн загвартай, таны контентод яг тохирсон
+                гарчигтай ирдэг
               </p>
             </div>
             <div className="p-6 rounded-lg border bg-card space-y-3">
-              <h3 className="text-xl font-medium">😮 One-Click Sharing</h3>
+              <h3 className="text-xl font-medium">😮 Нэг товчоор Хуваалцах</h3>
               <p className="text-muted-foreground">
-                Easily download or share your finished reels directly to all
-                major social media platforms
+                Бэлэн болсон бичлэгээ амархан татаж авах эсвэл голлох сошиал
+                медиа платформуудад шууд хуваалцаарай
               </p>
             </div>
           </div>
@@ -206,12 +248,13 @@ const Index = () => {
         <div className="container">
           <div className="flex flex-col items-center text-center space-y-8 max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-              Ready to Transform Your Social Media Presence?
+              Сошиал Медиа Дэлгэцээ Өөрчлөхөд Бэлэн үү?
             </h2>
             <p className="text-xl opacity-90 max-w-2xl">
-              Join thousands of content creators who are saving time and
-              producing high-quality social media content
+              Цаг хэмнэн, өндөр чанартай сошиал медиа контент бүтээж буй мянга
+              мянган контент бүтээгчдийн нэг болоорой
             </p>
+
             {/* <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 size="lg"
