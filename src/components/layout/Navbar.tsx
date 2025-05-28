@@ -22,8 +22,8 @@ const Navbar = () => {
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center">
           <Link to="/" className="flex items-center space-x-2">
-            <img className="h-6" src="/zeemergrad.png" alt="logo" />
-            <span className="text-2xl font-bold gradient-text">zeemer.ai</span>
+            {/* <img className="h-6" src="/zeemergrad.png" alt="logo" /> */}
+            <span className="text-2xl font-bold gradient-text">Azi.ai</span>
           </Link>
         </div>
 

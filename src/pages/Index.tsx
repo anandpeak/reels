@@ -52,14 +52,21 @@ const Index = () => {
             alt="aaa"
           />
           <div className="flex flex-col items-center text-center space-y-8 max-w-xl mx-auto">
-            <h1 className="text-4xl font-bold tracking-tight gradient-text">
+            <h1
+              className="text-4xl font-bold tracking-tight text-white"
+              style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.6)" }}
+            >
               Хором бүрт сэтгэл татам <br /> сошиал медиа бичлэгийг{" "}
               <span className="text-[#F48D7E] underline">
                 өөрийн хоолойгоороо
               </span>{" "}
               бий болгоорой
             </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl relative">
+
+            <p
+              className="text-xl text-white max-w-2xl relative"
+              style={{ textShadow: "1px 1px 3px rgba(0, 0, 0, 0.5)" }}
+            >
               Фото зургийг өөрийнхөөрөө оруулж, дуугаа бичиж, скрипт нэмээд,
               хиймэл оюун таны дүр төрх, хоолойг ашиглан мэргэжлийн бичлэг
               үүсгэнэ.
@@ -71,7 +78,7 @@ const Index = () => {
                   target="_blank"
                   to="https://docs.google.com/forms/d/e/1FAIpQLSeovzY15GVO_XJQUhxJlSxRyBmlGfvnfa9i1nNvOYsNCxpm-g/viewform"
                 >
-                  Хүлээгдэж буй жагсаалтанд нэгдэх
+                  Нэвтрэх
                 </Link>
               </Button>
             </div>

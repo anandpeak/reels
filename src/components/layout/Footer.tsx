@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-3">
             <Link to="/" className="flex items-center space-x-2">
-              <span className="text-xl font-bold gradient-text">zeemer.ai</span>
+              <span className="text-xl font-bold gradient-text">Azi.ai</span>
             </Link>
             <p className="text-sm text-muted-foreground">
               Хиймэл оюунд тулгуурлан хэдхэн минутанд <br /> мэргэжлийн сошиал
