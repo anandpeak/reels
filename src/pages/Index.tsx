@@ -58,7 +58,7 @@ const Index = () => {
             >
               Хором бүрт сэтгэл татам <br /> сошиал медиа бичлэгийг{" "}
               <span className="text-[#F48D7E] underline">
-                өөрийн хоолойгоороо
+                өөрийн хоолойгоор
               </span>{" "}
               бий болгоорой
             </h1>
@@ -100,15 +100,16 @@ const Index = () => {
         <div className="container relative z-10 flex flex-col items-center text-center gap-8">
           {/* Title */}
           <h1 className="text-2xl font-bold tracking-tight gradient-text max-w-xl">
-            Create Stunning Social <br /> Media Reels in Minutes with{" "}
-            <span className="text-[#F48D7E] underline">your voice</span>
+            Хором бүрт сэтгэл татам <br /> сошиал медиа бичлэгийг{" "}
+            <span className="text-[#F48D7E] underline">өөрийн хоолойгоор </span>
+            бий болгоорой
           </h1>
 
           {/* Image */}
           <div className="flex justify-start mt-4">
             <img
               className="w-[60%] max-w-xs rounded-xl shadow-lg"
-              src="/img/test.jpeg"
+              src="/img/test.jpg"
               alt="aaa"
             />
           </div>
