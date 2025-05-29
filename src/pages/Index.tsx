@@ -3,6 +3,7 @@ import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { Video, Mic, FileText } from "lucide-react";
 import { useEffect, useRef } from "react";
+import { ToastContainer, toast } from "react-toastify";
 
 const Index = () => {
   const videoRef = useRef(null);
@@ -74,12 +75,15 @@ const Index = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 relative">
               <Button size="lg" asChild>
-                <Link
-                  target="_blank"
-                  to="https://docs.google.com/forms/d/e/1FAIpQLSeovzY15GVO_XJQUhxJlSxRyBmlGfvnfa9i1nNvOYsNCxpm-g/viewform"
+                <button
+                  onClick={() => {
+                    toast.error("Та нэвтрэх эрхгүй байна.");
+                  }}
+                  // target="_blank"
+                  // to="https://docs.google.com/forms/d/e/1FAIpQLSeovzY15GVO_XJQUhxJlSxRyBmlGfvnfa9i1nNvOYsNCxpm-g/viewform"
                 >
                   Нэвтрэх
-                </Link>
+                </button>
               </Button>
             </div>
           </div>
@@ -136,13 +140,19 @@ const Index = () => {
               медиа бичлэг үүсгүүлээрэй.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" asChild>
-                <Link
-                  target="_blank"
-                  to="https://docs.google.com/forms/d/e/1FAIpQLSeovzY15GVO_XJQUhxJlSxRyBmlGfvnfa9i1nNvOYsNCxpm-g/viewform"
+              <Button
+                onClick={() => {
+                  toast.error("Та нэвтрэх эрхгүй байна.");
+                }}
+                size="lg"
+                asChild
+              >
+                <button
+                // target="_blank"
+                // to="https://docs.google.com/forms/d/e/1FAIpQLSeovzY15GVO_XJQUhxJlSxRyBmlGfvnfa9i1nNvOYsNCxpm-g/viewform"
                 >
-                  Эхлэх{" "}
-                </Link>
+                  Нэвтрэх
+                </button>
               </Button>
             </div>
           </div>
@@ -284,6 +294,7 @@ const Index = () => {
           </div>
         </div>
       </section>
+      <ToastContainer />
     </Layout>
   );
 };
